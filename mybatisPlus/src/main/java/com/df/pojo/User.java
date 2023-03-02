@@ -6,6 +6,7 @@ package com.df.pojo;
  * @Project_Name mybatisPlus
  * @Package_Name com.df.pojo
  */
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 @Data
 public class User {
@@ -13,4 +14,7 @@ public class User {
     private String name;
     private Integer age;
     private String email;
+    @TableLogic
+    //是否被删除
+    private Integer isDeleted;
 }

@@ -40,4 +40,11 @@ public class TestDemo {
         System.out.println("=======展示结果=======");
         userList.forEach(System.out::println);
     }
+
+    @Test
+    public void delete(){
+        int i = userMapper.delete(new QueryWrapper<User>()
+                .lambda()
+                .le(User::getAge, 19));
+    }
 }
