@@ -1,0 +1,11 @@
+# DataSourceConfig
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql:///mybatis_plus?userUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#配置日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
