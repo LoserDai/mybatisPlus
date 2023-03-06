@@ -22,6 +22,9 @@ public class TestDemo {
     @Autowired
     private UserMapper userMapper;
 
+    /**
+     * 分页查询
+     */
     @Test
     public void getPageTest(){
 
@@ -32,6 +35,9 @@ public class TestDemo {
         userPage.getRecords().forEach(System.out::println);
     }
 
+    /**
+     * 根据条件查询
+     */
     @Test
     public void getByQuery() {
         List<User> userList = userMapper.selectList(new QueryWrapper<User>()
@@ -41,6 +47,9 @@ public class TestDemo {
         userList.forEach(System.out::println);
     }
 
+    /**
+     * 根据条件删除
+     */
     @Test
     public void delete(){
         int i = userMapper.delete(new QueryWrapper<User>()
