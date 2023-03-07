@@ -3,7 +3,7 @@ package com.df.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.df.mapper.UserMapper;
-import com.df.pojo.User;
+import com.df.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

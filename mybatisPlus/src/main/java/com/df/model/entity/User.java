@@ -1,4 +1,4 @@
-package com.df.pojo;
+package com.df.model.entity;
 
 /**
  * @Author feng.dai

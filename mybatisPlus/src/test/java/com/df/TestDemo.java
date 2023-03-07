@@ -3,7 +3,8 @@ package com.df;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.df.mapper.UserMapper;
-import com.df.pojo.User;
+import com.df.model.entity.User;
+import com.df.model.enums.ReportStatusEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,5 +56,20 @@ public class TestDemo {
         int i = userMapper.delete(new QueryWrapper<User>()
                 .lambda()
                 .le(User::getAge, 19));
+    }
+
+    /**
+     * 枚举类测试获取数据
+     */
+    @Test
+    public void getEnum(){
+        int value = ReportStatusEnum.DEFAULT.getValue();
+        //0
+        System.out.println(value);
+        //获取枚举类中的values列表
+        List<Integer> list = ReportStatusEnum.getValues();
+        for (Integer integer : list) {
+            System.out.println(integer);
+        }
     }
 }
