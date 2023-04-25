@@ -9,7 +9,7 @@ package com.df.thread;
 public class LambdaThread {
     public static void main(String[] args) {
         Thread thread = new Thread(() -> {
-            System.out.println("lambda创建");
+            System.out.println(Thread.currentThread().getName() + " lambda创建");
         });
         thread.start();
     }
