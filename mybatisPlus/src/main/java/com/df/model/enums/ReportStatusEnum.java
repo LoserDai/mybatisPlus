@@ -16,7 +16,8 @@ import java.util.stream.Collectors;
  */
 public enum ReportStatusEnum {
         DEFAULT("未处理", 0),
-        HANDLED("已处理",1);
+        HANDLED("已处理",1),
+        ERROR("异常",2);
     private final String text;
     private final int value;
 

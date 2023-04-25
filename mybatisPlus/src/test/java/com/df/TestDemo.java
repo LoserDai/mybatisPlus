@@ -117,6 +117,8 @@ public class TestDemo {
         int value = ReportStatusEnum.DEFAULT.getValue();
         //0
         System.out.println(value);
+        String text = ReportStatusEnum.ERROR.getText();
+        System.out.println(text);
         //获取枚举类中的values列表
         List<Integer> list = ReportStatusEnum.getValues();
         for (Integer integer : list) {
