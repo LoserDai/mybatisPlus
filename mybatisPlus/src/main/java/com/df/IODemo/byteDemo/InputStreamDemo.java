@@ -9,14 +9,11 @@ import java.io.*;
  * @Package_Name com.df.IODemo.byteDemo
  */
 
-/**
- * 一般二进制类型的文件(图片，视频，音频，压缩文件等无法直接使用文本文档打开的文件)主要使用字节流操作
- * 一般文本类型文件(txt,md,java等可以直接使用文本文档打开的文件)主要使用字符流操作
- */
+
 public class InputStreamDemo {
     /**
-     * 字节流：InputStream OutputStream 处理图片视频等
-     * 字符流：Reader Writer 处理java，txt，md等
+     * 字节流：InputStream OutputStream
+     * 字符流：Reader Writer
      * @param args
      */
     public static void main(String[] args) {
