@@ -17,7 +17,7 @@ public class ThreadPoolDemo {
             public void run() {
                 //执行业务逻辑
                 for (int i = 1; i <= 1000; i++) {
-                    System.out.println(111);
+                    System.out.println("111");
                     System.out.println("线程: " + Thread.currentThread().getName() + "执行了, " + i);
                 }
             }
