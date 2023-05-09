@@ -1,5 +1,6 @@
 package com.df;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.df.mapper.UserMapper;
@@ -138,5 +139,24 @@ public class TestDemo {
         list.add("winter");
         list.stream().distinct().forEach(System.out::println);
 
+    }
+
+    /**
+     * 获取数据之后，根据年龄排升序
+     */
+    @Test
+    public void getStreamValues(){
+
+        List<User> list = userMapper.selectList(new QueryWrapper<User>().lambda().le(User::getAge,30).ge(User::getAge,20));
+        list.stream()
+                .filter(e -> e.getAge()>5)
+                .limit(20)
+                .sorted((o1, o2) -> {
+                    if (o1.getName().equals(o2.getName())){
+                        return o1.getAge() - o2.getAge();
+                    }else {
+                        return o1.getAge().compareTo(o2.getAge());
+                    }
+                }).forEach(System.out::println);
     }
 }
