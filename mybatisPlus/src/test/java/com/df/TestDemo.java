@@ -1,8 +1,8 @@
 package com.df;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.df.mapper.UserGroupMapper;
 import com.df.mapper.UserMapper;
 import com.df.model.entity.User;
 import com.df.model.enums.ReportStatusEnum;
@@ -50,6 +50,9 @@ public class TestDemo {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserGroupMapper userGroupMapper;
 
     /**
      * stream流根据已知list排序
@@ -145,16 +148,16 @@ public class TestDemo {
      * 获取数据之后，根据年龄排升序
      */
     @Test
-    public void getStreamValues(){
+    public void getStreamValues() {
 
-        List<User> list = userMapper.selectList(new QueryWrapper<User>().lambda().le(User::getAge,30).ge(User::getAge,20));
+        List<User> list = userMapper.selectList(new QueryWrapper<User>().lambda().le(User::getAge, 30).ge(User::getAge, 20));
         list.stream()
-                .filter(e -> e.getAge()>5)
+                .filter(e -> e.getAge() > 5)
                 .limit(20)
                 .sorted((o1, o2) -> {
-                    if (o1.getName().equals(o2.getName())){
+                    if (o1.getName().equals(o2.getName())) {
                         return o1.getAge() - o2.getAge();
-                    }else {
+                    } else {
                         return o1.getAge().compareTo(o2.getAge());
                     }
                 }).forEach(System.out::println);

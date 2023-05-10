@@ -11,10 +11,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements Serializable {
     private Long id;
     private String name;
     private Integer age;
@@ -22,4 +24,6 @@ public class User {
     @TableLogic
     //是否被删除
     private Integer isDeleted;
+
+    private Integer groupId;
 }
