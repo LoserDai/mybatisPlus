@@ -2,8 +2,8 @@ package com.df;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.df.mapper.UserGroupMapper;
-import com.df.mapper.UserMapper;
+import com.df.mapper.mysql.UserGroupMapper;
+import com.df.mapper.mysql.UserMapper;
 import com.df.model.entity.User;
 import com.df.model.enums.ReportStatusEnum;
 import org.junit.jupiter.api.Test;

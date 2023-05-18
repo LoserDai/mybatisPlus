@@ -5,6 +5,14 @@ spring:
     password: root
     url: jdbc:mysql:///mybatis_plus?userUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: article # 使用的数据库
+      authentication-database: admin #登陆认证的逻辑库名
+      username: admin
+      password: 123456
 #配置日志
 mybatis-plus:
   configuration:

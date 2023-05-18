@@ -1,4 +1,4 @@
-package com.df.mapper;
+package com.df.mapper.mysql;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.df.model.entity.UserGroup;
