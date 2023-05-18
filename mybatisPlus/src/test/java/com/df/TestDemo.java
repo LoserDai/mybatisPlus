@@ -144,6 +144,13 @@ public class TestDemo {
 
     }
 
+    @Test
+    public void testSort2(){
+        List<User> list = userMapper.selectList(new QueryWrapper<User>().lambda().ge(User::getAge, 2));
+        Map<Integer, List<User>> map = list.stream().collect(Collectors.groupingBy(User::getIsDeleted));
+        System.out.println(map);
+    }
+
     /**
      * 获取数据之后，根据年龄排升序
      */
