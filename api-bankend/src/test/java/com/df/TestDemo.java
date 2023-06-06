@@ -2,14 +2,18 @@ package com.df;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.df.mapper.mysql.CustomerMapper;
 import com.df.mapper.mysql.UserGroupMapper;
 import com.df.mapper.mysql.UserMapper;
+import com.df.model.entity.Customer;
 import com.df.model.entity.User;
 import com.df.model.enums.ReportStatusEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +57,12 @@ public class TestDemo {
 
     @Autowired
     private UserGroupMapper userGroupMapper;
+
+    @Autowired
+    private CustomerMapper customerMapper;
+
+    @Resource
+    private RedisTemplate redisTemplate;
 
     /**
      * stream流根据已知list排序
@@ -168,5 +178,18 @@ public class TestDemo {
                         return o1.getAge().compareTo(o2.getAge());
                     }
                 }).forEach(System.out::println);
+    }
+
+    /**
+     * @author feng.dai
+     * @date 2023/6/6 11:00
+     * 从数据库获取数据导入到redis
+     */
+    @Test
+    public void getCustomerIntoRedis() {
+        List<Customer> list = customerMapper.selectList(new QueryWrapper<Customer>());
+        for (Customer customer : list) {
+            redisTemplate.opsForList().leftPush(customer.getRemark(), customer);
+        }
     }
 }
